@@ -1,5 +1,16 @@
+import { Button, Container } from '@mui/material'
+
 function App() {
-  return <h1>Hello World</h1>
+  return (
+    <Container
+      sx={{
+        maxWidth: 'lg',
+        padding: '16px',
+      }}
+    >
+      <Button variant="outlined">Hello World</Button>
+    </Container>
+  )
 }
 
 export default App
