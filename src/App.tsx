@@ -1,6 +1,9 @@
 import { Button, Container } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 function App() {
+  const { t } = useTranslation()
+
   return (
     <Container
       sx={{
@@ -8,7 +11,7 @@ function App() {
         padding: '16px',
       }}
     >
-      <Button variant="outlined">Hello World</Button>
+      <Button variant="outlined">{t('Home.Olá mundo')}</Button>
     </Container>
   )
 }
