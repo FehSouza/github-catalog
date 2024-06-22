@@ -1,6 +1,6 @@
 import { Button, Container } from '@mui/material'
+import { SwitchLanguages } from 'components'
 import { useTranslation } from 'react-i18next'
-import { SwitchLanguages } from './components'
 
 function App() {
   const { t } = useTranslation()
