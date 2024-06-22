@@ -18,7 +18,7 @@ export const SwitchLanguages = () => {
   const handleChange = (lng: string) => i18n.changeLanguage(lng)
 
   return (
-    <Box data-testid="switch-languages" sx={{ position: 'absolute' }}>
+    <Box data-testid="switch-languages" sx={{ position: 'absolute', right: 16 }}>
       <SpeedDial
         icon={<TranslateIcon />}
         ariaLabel={t('Header.Selecione a linguagem desejada')}

@@ -14,6 +14,7 @@ export default defineConfig({
         '**/assets',
         '**/src/components/index.ts**',
         '**/src/i18n',
+        '**/src/pages/index.ts**',
         '**/src/styles',
         ...coverageConfigDefaults.exclude,
       ],
