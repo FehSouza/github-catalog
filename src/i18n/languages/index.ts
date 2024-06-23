@@ -1,6 +1,10 @@
 export const languages = {
   'pt-BR': {
     translation: {
+      Default: {
+        'Link para a Home': 'Link para a Home',
+      },
+
       Header: {
         'Selecione a linguagem desejada': 'Selecione a linguagem desejada',
         Português: 'Português',
@@ -15,6 +19,10 @@ export const languages = {
 
   'en-US': {
     translation: {
+      Default: {
+        'Link para a Home': 'Link to Home',
+      },
+
       Header: {
         'Selecione a linguagem desejada': 'Select the desired language',
         Português: 'Portuguese',

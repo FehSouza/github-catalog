@@ -1,23 +1,26 @@
-import { Container } from '@mui/material'
+import { Box, Paper } from '@mui/material'
+import { Logo } from 'components/Logo'
 import { SwitchLanguages } from 'components/SwitchLanguages'
 
 export const Header = () => {
   return (
-    <Container
+    <Paper
       component="header"
-      maxWidth={false}
-      disableGutters
+      square={true}
+      elevation={4}
       sx={{
-        minHeight: 88,
-        backgroundColor: '#121212',
-        boxShadow: '0 0 12px 2px #121212',
+        width: '100%',
+        backgroundColor: '#121212B3',
+        backgroundImage: 'none',
+        backdropFilter: 'blur(4px)',
         position: 'fixed',
         zIndex: 1,
       }}
     >
-      <Container maxWidth="lg" disableGutters sx={{ minHeight: 88, padding: 2, position: 'relative' }}>
+      <Box maxWidth="lg" mx="auto" px={2} py={1.5} position="relative">
+        <Logo />
         <SwitchLanguages />
-      </Container>
-    </Container>
+      </Box>
+    </Paper>
   )
 }

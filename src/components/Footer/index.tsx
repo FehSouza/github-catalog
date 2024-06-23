@@ -1,16 +1,12 @@
-import { Container } from '@mui/material'
+import { Box } from '@mui/material'
+import { Logo } from 'components/Logo'
 
 export const Footer = () => {
   return (
-    <Container
-      component="footer"
-      maxWidth={false}
-      disableGutters
-      sx={{ borderTop: 1, borderColor: 'secondary.contrastText' }}
-    >
-      <Container maxWidth="lg" disableGutters sx={{ padding: 2 }}>
-        <span>Footer</span>
-      </Container>
-    </Container>
+    <Box component="footer" borderTop={1} borderColor="secondary.contrastText">
+      <Box component="section" maxWidth="max-content" mx="auto" px={2} py={1.5}>
+        <Logo hasText />
+      </Box>
+    </Box>
   )
 }

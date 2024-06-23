@@ -18,12 +18,13 @@ export const SwitchLanguages = () => {
   const handleChange = (lng: string) => i18n.changeLanguage(lng)
 
   return (
-    <Box data-testid="switch-languages" sx={{ position: 'absolute', right: 16 }}>
+    <Box data-testid="switch-languages" width={40} position="absolute" top={12} right={16}>
       <SpeedDial
-        icon={<TranslateIcon />}
+        icon={<TranslateIcon fontSize="small" />}
         ariaLabel={t('Header.Selecione a linguagem desejada')}
         direction="down"
         transitionDuration={0}
+        FabProps={{ size: 'small' }}
       >
         {languages.map((action, index) => (
           <SpeedDialAction
@@ -32,6 +33,7 @@ export const SwitchLanguages = () => {
             icon={<img src={action.icon} />}
             tooltipTitle={action.name}
             onClick={() => handleChange(action.lng)}
+            sx={{ maxWidth: 40, maxHeight: 40 }}
           />
         ))}
       </SpeedDial>
