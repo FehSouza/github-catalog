@@ -14,6 +14,14 @@ export const languages = {
       Home: {
         'Olá mundo': 'Olá mundo',
       },
+
+      Repositories: {
+        Repositórios: 'Repositórios',
+      },
+
+      Followers: {
+        Seguidores: 'Seguidores',
+      },
     },
   },
 
@@ -31,6 +39,14 @@ export const languages = {
 
       Home: {
         'Olá mundo': 'Hello World',
+      },
+
+      Repositories: {
+        Repositórios: 'Repositories',
+      },
+
+      Followers: {
+        Seguidores: 'Followers',
       },
     },
   },
