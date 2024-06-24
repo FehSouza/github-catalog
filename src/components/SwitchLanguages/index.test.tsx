@@ -3,18 +3,18 @@ import { describe, expect, it } from 'vitest'
 import { SwitchLanguages } from '.'
 
 describe('SwitchLanguages component', () => {
-  it('should render SwitchLanguages component', () => {
+  it('Should render SwitchLanguages component', () => {
     render(<SwitchLanguages />)
     expect(screen.getByTestId('switch-languages')).toBeVisible()
   })
 
-  it('should have at least two languages', () => {
+  it('Should have at least two languages', () => {
     render(<SwitchLanguages />)
     expect(screen.getByTestId('switch-languages-item-0')).toBeInTheDocument()
     expect(screen.getByTestId('switch-languages-item-1')).toBeInTheDocument()
   })
 
-  it('should show the language options', () => {
+  it('Should show the language options', () => {
     render(<SwitchLanguages />)
     const button = screen.getByTestId('switch-languages')
     fireEvent.focus(button)
@@ -22,7 +22,7 @@ describe('SwitchLanguages component', () => {
     waitFor(() => expect(screen.getByTestId('switch-languages-item-1')).toBeVisible())
   })
 
-  it('should change the translation', () => {
+  it('Should change the translation', () => {
     render(<SwitchLanguages />)
     const button = screen.getByTestId('switch-languages')
     fireEvent.focus(button)
