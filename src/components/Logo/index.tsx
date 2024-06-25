@@ -15,7 +15,7 @@ export const Logo = ({ hasText }: LogoProps) => {
       data-testid="logo"
       component={Link}
       to="/"
-      aria-label={t('Default.Link para a Home')}
+      aria-label={t('Default.linkHomePage')}
       width="max-content"
       display="flex"
       flexDirection="column"
@@ -23,16 +23,12 @@ export const Logo = ({ hasText }: LogoProps) => {
       color="primary.main"
       sx={{
         textDecoration: 'none',
-        transition: 'color 0.35s ease-in-out',
+        transition: '0.35s ease-in-out',
         ':hover': { color: 'primary.dark' },
         ':hover svg': { color: 'primary.dark' },
       }}
     >
-      <GitHubIcon
-        data-testid="logo-icon"
-        color="primary"
-        sx={{ fontSize: 40, transition: 'color 0.35s ease-in-out' }}
-      />
+      <GitHubIcon data-testid="logo-icon" color="primary" sx={{ fontSize: 40, transition: '0.35s ease-in-out' }} />
 
       {!!hasText && (
         <Typography data-testid="logo-text" variant="body2" mt={0.5}>

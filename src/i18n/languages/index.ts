@@ -2,25 +2,21 @@ export const languages = {
   'pt-BR': {
     translation: {
       Default: {
-        'Link para a Home': 'Link para a Home',
+        repositories: 'Repositórios',
+        followers: 'Seguidores',
+        linkHomePage: 'Link para a Home',
+        linkRepositoriesPage: 'Link para a página de repositórios',
+        linkFollowersPage: 'Link para a página de seguidores',
       },
 
       Header: {
-        'Selecione a linguagem desejada': 'Selecione a linguagem desejada',
-        Português: 'Português',
-        Inglês: 'Inglês',
+        portuguese: 'Português',
+        english: 'Inglês',
+        selectLanguage: 'Selecione a linguagem desejada',
       },
 
       Home: {
         'Olá mundo': 'Olá mundo',
-      },
-
-      Repositories: {
-        Repositórios: 'Repositórios',
-      },
-
-      Followers: {
-        Seguidores: 'Seguidores',
       },
     },
   },
@@ -28,25 +24,21 @@ export const languages = {
   'en-US': {
     translation: {
       Default: {
-        'Link para a Home': 'Link to Home',
+        repositories: 'Repositories',
+        followers: 'Followers',
+        linkHomePage: 'Link to Home',
+        linkRepositoriesPage: 'Link to repositories page',
+        linkFollowersPage: 'Link to followers page',
       },
 
       Header: {
-        'Selecione a linguagem desejada': 'Select the desired language',
-        Português: 'Portuguese',
-        Inglês: 'English',
+        portuguese: 'Portuguese',
+        english: 'English',
+        selectLanguage: 'Select the desired language',
       },
 
       Home: {
         'Olá mundo': 'Hello World',
-      },
-
-      Repositories: {
-        Repositórios: 'Repositories',
-      },
-
-      Followers: {
-        Seguidores: 'Followers',
       },
     },
   },

@@ -1,6 +1,5 @@
 import { Box, Paper } from '@mui/material'
-import { Logo } from 'components/Logo'
-import { SwitchLanguages } from 'components/SwitchLanguages'
+import { Logo, Menu, SwitchLanguages } from 'components'
 
 export const Header = () => {
   return (
@@ -17,8 +16,9 @@ export const Header = () => {
         zIndex: 1,
       }}
     >
-      <Box maxWidth="lg" mx="auto" px={2} py={1.5} position="relative">
+      <Box maxWidth="lg" display="flex" alignItems="center" justifyContent="space-between" mx="auto" px={2} py={1.5}>
         <Logo />
+        <Menu />
         <SwitchLanguages />
       </Box>
     </Paper>

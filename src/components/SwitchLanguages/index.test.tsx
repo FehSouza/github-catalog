@@ -31,7 +31,7 @@ describe('SwitchLanguages component', () => {
 
     fireEvent.click(language0)
 
-    expect(screen.getByTestId('switch-languages-item-0').ariaLabel).not.toBe(language0.ariaLabel)
-    expect(screen.getByTestId('switch-languages-item-1').ariaLabel).not.toBe(language1.ariaLabel)
+    waitFor(() => expect(screen.getByTestId('switch-languages-item-0').ariaLabel).not.toBe(language0.ariaLabel))
+    waitFor(() => expect(screen.getByTestId('switch-languages-item-1').ariaLabel).not.toBe(language1.ariaLabel))
   })
 })

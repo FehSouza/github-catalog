@@ -8,7 +8,7 @@ export const Repositories = () => {
     <Box component="main" flex={1}>
       <Box component="section" maxWidth="lg" mx="auto" p={2}>
         <Typography variant="h1" color="primary.main" fontWeight={700}>
-          {t('Repositories.Repositórios')}
+          {t('Default.repositories')}
         </Typography>
       </Box>
     </Box>

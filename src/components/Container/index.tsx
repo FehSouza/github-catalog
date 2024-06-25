@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
-import { Footer } from 'components/Footer'
-import { Header } from 'components/Header'
+import { Footer, Header } from 'components'
 import { Outlet } from 'react-router-dom'
 
 export const Container = () => {
