@@ -4,6 +4,7 @@ import { Logo, Menu, SwitchLanguages } from 'components'
 export const Header = () => {
   return (
     <Paper
+      data-testid="header"
       component="header"
       square={true}
       elevation={4}

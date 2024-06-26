@@ -6,14 +6,18 @@ interface MenuItemProps {
   name: string
   link: string
   ariaLabel: string
+  index: number
 }
 
-export const MenuItem = ({ name, link, ariaLabel }: MenuItemProps) => {
+export const MenuItem = ({ name, link, ariaLabel, index = 0 }: MenuItemProps) => {
   const { t } = useTranslation()
 
+  if (!name || !link || !ariaLabel) return null
+
   return (
-    <Box component="li" height={32} display="flex">
+    <Box data-testid={`menu-item-${index}`} component="li" height={32} display="flex">
       <Box
+        data-testid={`menu-item-link-${index}`}
         component={NavLink}
         to={link}
         aria-label={t(`Default.${ariaLabel}`)}

@@ -17,10 +17,10 @@ const TestWrapper = ({ children, entry, routes = [], route = '*' }: TestWrapperP
     <GlobalProvider>
       <MemoryRouter initialEntries={entry}>
         <Routes>
-          <Route path={route} element={<div data-testid="test-wrapper">{children}</div>} />
           {routes.map((path) => (
             <Route key={path} path={path} element={<div>{children}</div>} />
           ))}
+          <Route path={route} element={<div data-testid="test-wrapper">{children}</div>} />
         </Routes>
       </MemoryRouter>
     </GlobalProvider>
