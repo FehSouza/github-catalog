@@ -7,4 +7,9 @@ describe('Header component', () => {
     render(<Header />)
     expect(screen.getByTestId('header')).toBeVisible()
   })
+
+  it('Should render Header component - container', () => {
+    render(<Header />)
+    expect(screen.getByTestId('header-container')).toBeVisible()
+  })
 })

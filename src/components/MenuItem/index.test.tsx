@@ -21,16 +21,35 @@ describe('MenuItem component', () => {
     expect(screen.getByTestId('menu-item-link-0').classList.contains('active')).toBe(true)
   })
 
-  it.skip('Should not render MenuItem component because some prop is missing', () => {
+  it('Should not render MenuItem component because some prop is missing', () => {
+    // Name
     const { rerender } = render(<MenuItem name="" link="/test" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-
     // @ts-ignore
     rerender(<MenuItem name={undefined} link="/test" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-
     // @ts-ignore
     rerender(<MenuItem name={null} link="/test" ariaLabel="Test" index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+
+    // Link
+    rerender(<MenuItem name="Test" link="" ariaLabel="Test" index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+    // @ts-ignore
+    rerender(<MenuItem name="Test" link={undefined} ariaLabel="Test" index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+    // @ts-ignore
+    rerender(<MenuItem name="Test" link={null} ariaLabel="Test" index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+
+    // Aria label
+    rerender(<MenuItem name="Test" link="/test" ariaLabel="" index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+    // @ts-ignore
+    rerender(<MenuItem name="Test" link="/test" ariaLabel={undefined} index={0} />)
+    expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
+    // @ts-ignore
+    rerender(<MenuItem name="Test" link="/test" ariaLabel={null} index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
   })
 })

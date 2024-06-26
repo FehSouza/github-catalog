@@ -17,7 +17,16 @@ export const Header = () => {
         zIndex: 1,
       }}
     >
-      <Box maxWidth="lg" display="flex" alignItems="center" justifyContent="space-between" mx="auto" px={2} py={1.5}>
+      <Box
+        data-testid="header-container"
+        maxWidth="lg"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        mx="auto"
+        px={2}
+        py={1.5}
+      >
         <Logo />
         <Menu />
         <SwitchLanguages />
