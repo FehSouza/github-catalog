@@ -11,7 +11,6 @@ export const Footer = () => {
   return (
     <Box data-testid="footer" component="footer" borderTop={1} borderColor="secondary.contrastText">
       <Box
-        data-testid="footer-seo"
         component="section"
         maxWidth="md"
         display="flex"
@@ -28,8 +27,8 @@ export const Footer = () => {
         </Typography>
       </Box>
 
-      <Box data-testid="footer-copyright" component="section" p={2} sx={{ backgroundColor: 'secondary.contrastText' }}>
-        <Typography variant="body2" textAlign="center">
+      <Box component="section" p={2} sx={{ backgroundColor: 'secondary.contrastText' }}>
+        <Typography variant="body2" textAlign="center" data-testid="footer-copyright">
           {`© ${year} Copyright: GitHub Catalog`}
         </Typography>
       </Box>
