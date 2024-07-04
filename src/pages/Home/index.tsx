@@ -1,5 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { Box, Button, Divider, InputAdornment, List, ListItem, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, InputAdornment, TextField, Typography } from '@mui/material'
+import { UserNotFound } from 'components'
 import { ChangeEvent, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getUser } from 'services'
@@ -69,19 +70,7 @@ export const Home = () => {
 
       <Divider variant="middle" aria-hidden />
 
-      <Box component="section" display="flex" flexDirection="column" alignItems="center" gap={4} py={4}>
-        <Typography align="center" variant="h2">
-          {t('Home.messageError')}
-        </Typography>
-        <Typography align="center">{t('Home.stepsError')}</Typography>
-
-        <List disablePadding dense>
-          <ListItem sx={{ justifyContent: 'center', textAlign: 'center' }}>{t('Home.stepError1')}</ListItem>
-          <ListItem sx={{ justifyContent: 'center', textAlign: 'center' }}>{t('Home.stepError2')}</ListItem>
-          <ListItem sx={{ justifyContent: 'center', textAlign: 'center' }}>{t('Home.stepError3')}</ListItem>
-          <ListItem sx={{ justifyContent: 'center', textAlign: 'center' }}>{t('Home.stepError4')}</ListItem>
-        </List>
-      </Box>
+      {!!error && <UserNotFound />}
     </Box>
   )
 }
