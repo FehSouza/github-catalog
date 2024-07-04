@@ -7,7 +7,15 @@ export const UserNotFound = () => {
   const { t } = useTranslation()
 
   return (
-    <Box component="section" display="flex" flexDirection="column" alignItems="center" gap={4} py={4}>
+    <Box
+      data-testid="user-not-found"
+      component="section"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={4}
+      py={4}
+    >
       <Typography variant="h2" align="center">
         {t('Home.messageError')}
       </Typography>
@@ -16,7 +24,11 @@ export const UserNotFound = () => {
 
       <List disablePadding dense>
         {listSteps.map((step, index) => (
-          <ListItem key={`step-error-${index}`} sx={{ justifyContent: 'center', textAlign: 'center' }}>
+          <ListItem
+            data-testid={`step-error-${index}`}
+            key={`step-error-${index}`}
+            sx={{ justifyContent: 'center', textAlign: 'center' }}
+          >
             {t(step)}
           </ListItem>
         ))}
