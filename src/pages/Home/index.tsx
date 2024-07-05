@@ -29,7 +29,11 @@ export const Home = () => {
 
   return (
     <Box component="main" width="100%" maxWidth="lg" flex={1} mx="auto" px={2}>
-      <Box component="section" display="flex" flexDirection="column" alignItems="center" gap={1} py={4}>
+      <Typography variant="h1" fontWeight="700" color="primary.main" align="center" mt={4}>
+        {t('Home.title')}
+      </Typography>
+
+      <Box component="section" display="flex" flexDirection="column" alignItems="center" gap={1} my={4}>
         <Typography align="center">{t('Home.titleInput')}</Typography>
 
         <Box width="100%" maxWidth={420} display="flex">

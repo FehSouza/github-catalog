@@ -21,6 +21,7 @@ export const languages = {
       },
 
       Home: {
+        title: 'Busque usuários de maneira rápida com GitHub Catalog!',
         titleInput: 'Digite o nome de usuário do GitHub que deseja pesquisar:',
         labelInput: 'Nome de usuário',
         errorInput: 'Nome de usuário inválido',
@@ -57,6 +58,7 @@ export const languages = {
       },
 
       Home: {
+        title: 'Quickly search for users with GitHub Catalog!',
         titleInput: 'Enter the GitHub username you want to search for:',
         labelInput: 'User name',
         errorInput: 'Invalid user name',
