@@ -6,6 +6,7 @@ describe('Footer component', () => {
   it('Should render the Footer component', () => {
     render(<Footer />)
     expect(screen.getByTestId('footer')).toBeVisible()
+    expect(screen.getByTestId('footer')).toBeInTheDocument()
   })
 
   it('Should render the copyright with the correct year', () => {
@@ -15,6 +16,7 @@ describe('Footer component', () => {
     render(<Footer />)
     const copyrightText = screen.getByTestId('footer-copyright')
     expect(copyrightText).toBeVisible()
+    expect(copyrightText).toBeInTheDocument()
     expect(copyrightText.textContent?.includes(year)).toBe(true)
   })
 })

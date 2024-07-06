@@ -6,6 +6,7 @@ describe('SwitchLanguages component', () => {
   it('Should render SwitchLanguages component', () => {
     render(<SwitchLanguages />)
     expect(screen.getByTestId('switch-languages')).toBeVisible()
+    expect(screen.getByTestId('switch-languages')).toBeInTheDocument()
   })
 
   it('Should have at least two languages', () => {

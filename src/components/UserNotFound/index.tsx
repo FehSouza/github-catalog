@@ -24,11 +24,7 @@ export const UserNotFound = () => {
 
       <List disablePadding dense>
         {listSteps.map((step, index) => (
-          <ListItem
-            data-testid={`step-error-${index}`}
-            key={`step-error-${index}`}
-            sx={{ justifyContent: 'center', textAlign: 'center' }}
-          >
+          <ListItem key={`step-error-${index}`} sx={{ justifyContent: 'center', textAlign: 'center' }}>
             {t(step)}
           </ListItem>
         ))}

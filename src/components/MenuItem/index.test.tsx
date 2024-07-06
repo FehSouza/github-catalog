@@ -6,7 +6,9 @@ describe('MenuItem component', () => {
   it('Should render MenuItem component', async () => {
     render(<MenuItem name="Test" link="/test" ariaLabel="Test" index={0} />)
     expect(screen.getByTestId('menu-item-0')).toBeVisible()
+    expect(screen.getByTestId('menu-item-0')).toBeInTheDocument()
     expect(screen.getByTestId('menu-item-link-0')).toBeVisible()
+    expect(screen.getByTestId('menu-item-link-0')).toBeInTheDocument()
   })
 
   it('Should navigate when clicking on a menu item', async () => {

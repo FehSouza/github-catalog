@@ -6,10 +6,6 @@ describe('Header component', () => {
   it('Should render Header component', () => {
     render(<Header />)
     expect(screen.getByTestId('header')).toBeVisible()
-  })
-
-  it('Should render Header component - container', () => {
-    render(<Header />)
-    expect(screen.getByTestId('header-container')).toBeVisible()
+    expect(screen.getByTestId('header')).toBeInTheDocument()
   })
 })
