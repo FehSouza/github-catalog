@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { Logo } from 'components'
+import { Logotype } from 'components'
 import { useTranslation } from 'react-i18next'
 
 export const Footer = () => {
@@ -20,7 +20,7 @@ export const Footer = () => {
         mx="auto"
         p={2}
       >
-        <Logo hasText />
+        <Logotype />
 
         <Typography variant="body2" textAlign="center">
           {t('Footer.description')}
