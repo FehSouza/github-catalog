@@ -2,7 +2,7 @@ export interface User {
   login: string
   id: number
   node_id: string
-  avatar_url: string
+  avatar_url: string | null
   gravatar_id: string
   url: string
   html_url: string
@@ -20,11 +20,11 @@ export interface User {
   name: string
   company: string
   blog: string
-  location: string
-  email: string
-  hireable: any
-  bio: string
-  twitter_username: string
+  location: string | null
+  email: string | null
+  hireable: any | null
+  bio: string | null
+  twitter_username: string | null
   public_repos: number
   public_gists: number
   followers: number

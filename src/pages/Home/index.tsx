@@ -1,6 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
 import { Box, Button, Divider, InputAdornment, TextField, Typography } from '@mui/material'
-import { UserNotFound } from 'components'
+import { UserCard, UserNotFound } from 'components'
 import { ChangeEvent, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getUser } from 'services'
@@ -74,6 +74,7 @@ export const Home = () => {
 
       <Divider variant="middle" aria-hidden />
 
+      {!error && !!data && <UserCard data={data} />}
       {!!error && <UserNotFound />}
     </Box>
   )
