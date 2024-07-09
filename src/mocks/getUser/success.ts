@@ -23,7 +23,7 @@ export const MOCK_GET_USER = {
   location: null,
   email: null,
   hireable: null,
-  bio: null,
+  bio: 'Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza',
   twitter_username: null,
   public_repos: 34,
   public_gists: 0,

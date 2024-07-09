@@ -7,18 +7,12 @@ const items: { name: string; link: string; ariaLabel: string }[] = [
   { name: 'followers', link: '/seguidores', ariaLabel: 'linkFollowersPage' },
 ]
 
+const desktop = theme.breakpoints.up('sm')
+
 export const Menu = () => {
   return (
     <Box data-testid="menu" component="nav">
-      <Box
-        data-testid="menu-list"
-        component="ul"
-        display="flex"
-        gap={1}
-        p={0}
-        m={0}
-        sx={{ [theme.breakpoints.up('sm')]: { gap: 4 } }}
-      >
+      <Box data-testid="menu-list" component="ul" display="flex" gap={1} p={0} m={0} sx={{ [desktop]: { gap: 4 } }}>
         {items.map((item, index) => {
           const name = item.name
           const link = item.link

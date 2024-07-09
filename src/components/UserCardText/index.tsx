@@ -7,6 +7,9 @@ interface UserCardTextProps {
   text: string
 }
 
+const desktop = theme.breakpoints.up('sm')
+const mobile = theme.breakpoints.down('sm')
+
 export const UserCardText = ({ title, text }: UserCardTextProps) => {
   const { t } = useTranslation()
 
@@ -14,11 +17,11 @@ export const UserCardText = ({ title, text }: UserCardTextProps) => {
     <Box
       display="flex"
       flexDirection="column"
-      gap={0.5}
-      sx={{ [theme.breakpoints.up('sm')]: { flexDirection: 'row' } }}
+      alignItems="center"
+      sx={{ [desktop]: { flexDirection: 'row', alignItems: 'flex-start', gap: 0.5 } }}
     >
       <Typography fontWeight="700">{t(title)}</Typography>
-      <Typography>{text}</Typography>
+      <Typography sx={{ [mobile]: { textAlign: 'center' } }}>{text}</Typography>
     </Box>
   )
 }
