@@ -27,6 +27,7 @@ export const UserCard = ({ user }: UserCardProps) => {
 
   return (
     <Box
+      data-testid="user-card"
       component="section"
       display="flex"
       flexDirection="column"
@@ -51,6 +52,7 @@ export const UserCard = ({ user }: UserCardProps) => {
       >
         {!image && (
           <PersonIcon
+            data-testid="user-card-without-image"
             color="secondary"
             aria-label={t('Home.altWithoutImage')}
             sx={{ fontSize: 64, transition: '0.35s ease-in-out' }}
@@ -59,6 +61,7 @@ export const UserCard = ({ user }: UserCardProps) => {
 
         {!!image && (
           <img
+            data-testid="user-card-image"
             srcSet={`${image}?w=200&h=200&fit=crop&auto=format&dpr=2 2x`}
             src={`${image}?w=200&h=200&fit=crop&auto=format`}
             alt={altImage}

@@ -17,8 +17,8 @@ export interface User {
   received_events_url: string
   type: string
   site_admin: boolean
-  name: string
-  company: string
+  name: string | null
+  company: string | null
   blog: string
   location: string | null
   email: string | null
