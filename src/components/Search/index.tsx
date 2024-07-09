@@ -12,7 +12,7 @@ interface SearchProps {
   isMutating: boolean
 }
 
-let timerDebounceSearch: undefined | number = undefined
+let timerDebounceSearch: NodeJS.Timeout | undefined = undefined
 
 export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) => {
   const { t } = useTranslation()

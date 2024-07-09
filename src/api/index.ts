@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-export const ENABLE_MOCK = true
+export const baseURL = 'https://api.github.com'
 
-export const api = axios.create({
-  baseURL: 'https://api.github.com',
-})
+export const api = axios.create({ baseURL })

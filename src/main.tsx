@@ -5,16 +5,21 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-// if (import.meta.env.MODE === 'mock') {
+const config = async () => {
+  if (import.meta.env.MODE === 'mock') {
+    const { worker } = await import('api_mocks/browser')
+    worker.start()
+  }
+}
 
-// }
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <GlobalProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </GlobalProvider>
-  </React.StrictMode>
-)
+config().then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <GlobalProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </GlobalProvider>
+    </React.StrictMode>
+  )
+})

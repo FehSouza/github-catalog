@@ -1,11 +1,11 @@
 import { User } from '@types'
-import { api, ENABLE_MOCK } from 'api'
+import { api, baseURL } from 'api'
 import { AxiosError } from 'axios'
 import { MOCK_GET_USER } from 'mocks'
+import { HttpResponse, delay, http } from 'msw'
 
 export const getUser = async (user: string) => {
   try {
-    if (ENABLE_MOCK) return MOCK_GET_USER
     const response = await api.get<User>(`/users/${user}`)
     const result = response.data
     return result
@@ -13,3 +13,8 @@ export const getUser = async (user: string) => {
     if (error instanceof AxiosError) throw { status: error.response?.status, message: error.message }
   }
 }
+
+export const mockGetUser = http.get(`${baseURL}/users/:user`, async () => {
+  await delay()
+  return HttpResponse.json(MOCK_GET_USER)
+})
