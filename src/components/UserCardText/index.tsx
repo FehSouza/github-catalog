@@ -13,8 +13,11 @@ const mobile = theme.breakpoints.down('sm')
 export const UserCardText = ({ title, text }: UserCardTextProps) => {
   const { t } = useTranslation()
 
+  if (!title || !text) return null
+
   return (
     <Box
+      data-testid="user-card-text"
       display="flex"
       flexDirection="column"
       alignItems="center"
