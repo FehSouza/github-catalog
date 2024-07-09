@@ -8,7 +8,7 @@ import { TriggerWithoutArgs } from 'swr/mutation'
 interface SearchProps {
   setValue: Dispatch<SetStateAction<string>>
   error: any
-  trigger: TriggerWithoutArgs<User, any, `api/users/${string}`, never>
+  trigger: TriggerWithoutArgs<User | undefined, any, `api/users/${string}`, never>
   isMutating: boolean
 }
 
@@ -28,7 +28,15 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
   }
 
   return (
-    <Box component="section" display="flex" flexDirection="column" alignItems="center" gap={1} my={4}>
+    <Box
+      data-testid="search"
+      component="section"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={1}
+      my={4}
+    >
       <Typography align="center">{t('Home.titleInput')}</Typography>
 
       <Box width="100%" maxWidth={420} display="flex">
@@ -43,6 +51,7 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
           fullWidth
           size="medium"
           color="primary"
+          inputProps={{ role: 'searchbox' }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -56,6 +65,7 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
           variant="contained"
           onClick={handleSearch}
           size="large"
+          role="search"
           sx={{
             minWidth: 96,
             height: 56,
@@ -65,7 +75,7 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
           }}
         >
           {!isMutating && t('Home.textButton')}
-          {!!isMutating && <CircularProgress size={20} color="inherit" />}
+          {!!isMutating && <CircularProgress data-testid="search-loading" size={20} color="inherit" />}
         </Button>
       </Box>
     </Box>
