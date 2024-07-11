@@ -8,7 +8,7 @@ import { TriggerWithoutArgs } from 'swr/mutation'
 interface SearchProps {
   setValue: Dispatch<SetStateAction<string>>
   error: any
-  trigger: TriggerWithoutArgs<User | undefined, any, `api/users/${string}`, never>
+  trigger: TriggerWithoutArgs<User, any, `api/users/${string}`, never>
   isMutating: boolean
 }
 

@@ -1,14 +1,19 @@
 import { Box, List, ListItem, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-const listSteps = ['Home.stepError1', 'Home.stepError2', 'Home.stepError3', 'Home.stepError4']
+const listSteps = [
+  'Default.stepNotFoundError1',
+  'Default.stepNotFoundError2',
+  'Default.stepNotFoundError3',
+  'Default.stepNotFoundError4',
+]
 
-export const UserNotFound = () => {
+export const NotFoundError = () => {
   const { t } = useTranslation()
 
   return (
     <Box
-      data-testid="user-not-found"
+      data-testid="not-found-error"
       component="section"
       display="flex"
       flexDirection="column"
@@ -17,10 +22,10 @@ export const UserNotFound = () => {
       py={4}
     >
       <Typography variant="h2" align="center">
-        {t('Home.messageError')}
+        {t('Default.messageNotFoundError')}
       </Typography>
 
-      <Typography align="center">{t('Home.stepsError')}</Typography>
+      <Typography align="center">{t('Default.stepsNotFoundError')}</Typography>
 
       <List disablePadding dense>
         {listSteps.map((step, index) => (

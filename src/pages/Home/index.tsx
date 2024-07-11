@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from '@mui/material'
-import { Search, UserCard, UserNotFound } from 'components'
+import { NotFoundError, Search, UnexpectedError, UserCard } from 'components'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getUser } from 'services'
@@ -24,7 +24,8 @@ export const Home = () => {
       <Divider variant="middle" aria-hidden />
 
       {!error && !!data && <UserCard user={data} />}
-      {!!error && <UserNotFound />}
+      {!!error && error?.request.status === 404 && <NotFoundError />}
+      {!!error && error?.request.status !== 404 && <UnexpectedError />}
     </Box>
   )
 }

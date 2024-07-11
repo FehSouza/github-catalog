@@ -1,5 +1,5 @@
 import { languages } from 'i18n/languages'
-import { MOCK_GET_USER_ERROR } from 'mocks'
+import { MOCK_GET_USER_NOT_FOUND } from 'mocks'
 import { fireEvent, render, screen } from 'utils/testUtils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Search } from '.'
@@ -28,7 +28,7 @@ describe('Search component', () => {
   it('Should render the Search component with error', () => {
     const errorText = languages['en-US'].translation.Home.errorInput
 
-    render(<Search setValue={() => {}} error={MOCK_GET_USER_ERROR} trigger={trigger} isMutating={false} />)
+    render(<Search setValue={() => {}} error={MOCK_GET_USER_NOT_FOUND} trigger={trigger} isMutating={false} />)
     expect(screen.getByTestId('search')).toHaveTextContent(errorText)
   })
 
