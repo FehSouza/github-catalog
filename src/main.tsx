@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 const config = async () => {
   if (import.meta.env.MODE === 'mock') {
     const { worker } = await import('api_mocks/browser')
-    worker.start()
+    await worker.start()
   }
 }
 

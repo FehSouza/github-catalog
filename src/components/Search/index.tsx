@@ -1,21 +1,19 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
 import { Box, Button, CircularProgress, InputAdornment, TextField, Typography } from '@mui/material'
-import { User } from '@types'
-import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TriggerWithoutArgs } from 'swr/mutation'
 
 interface SearchProps {
+  value?: string
   setValue: Dispatch<SetStateAction<string>>
   error: any
-  trigger: TriggerWithoutArgs<User, any, `api/users/${string}`, never>
+  trigger: () => void
   isMutating: boolean
 }
 
-let timerDebounceSearch: NodeJS.Timeout | undefined = undefined
-
-export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) => {
+export const Search = ({ value, setValue, error, trigger, isMutating }: SearchProps) => {
   const { t } = useTranslation()
+  const timerDebounceSearch = useRef<NodeJS.Timeout>()
 
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value.trim()
@@ -23,9 +21,11 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
   }
 
   const handleSearch = () => {
-    if (timerDebounceSearch) clearTimeout(timerDebounceSearch)
-    timerDebounceSearch = setTimeout(() => trigger(), 750)
+    if (timerDebounceSearch.current) clearTimeout(timerDebounceSearch.current)
+    timerDebounceSearch.current = setTimeout(() => trigger(), 750)
   }
+
+  useEffect(() => () => clearTimeout(timerDebounceSearch.current), [])
 
   return (
     <Box
@@ -51,7 +51,7 @@ export const Search = ({ setValue, error, trigger, isMutating }: SearchProps) =>
           fullWidth
           size="medium"
           color="primary"
-          inputProps={{ role: 'searchbox' }}
+          inputProps={{ role: 'searchbox', defaultValue: value }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -3,6 +3,7 @@ import { Box, Link } from '@mui/material'
 import { User } from '@types'
 import { UserCardText } from 'components/UserCardText'
 import { useTranslation } from 'react-i18next'
+import { Link as LinkRouter } from 'react-router-dom'
 import { theme } from 'styles/theme'
 
 interface UserCardProps {
@@ -86,8 +87,16 @@ export const UserCard = ({ user }: UserCardProps) => {
         <UserCardText title="Home.followers" text={followersText} />
         {!!company && <UserCardText title="Home.company" text={company} />}
 
-        <Link href={profile} target="_blank" underline="always" width="fit-content" color="secondary.main">
+        <Link href={profile} target="_blank" underline="always" width="fit-content">
           {t('Home.linkProfile')}
+        </Link>
+
+        <Link component={LinkRouter} to={`/repositorios/${username}`} underline="always" width="fit-content">
+          {t('Home.linkRepositories')}
+        </Link>
+
+        <Link component={LinkRouter} to={`/seguidores/${username}`} underline="always" width="fit-content">
+          {t('Home.linkFollowers')}
         </Link>
       </Box>
     </Box>
