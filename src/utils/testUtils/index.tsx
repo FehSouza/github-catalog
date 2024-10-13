@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest'
-import { render, RenderOptions } from '@testing-library/react'
+import { render, renderHook, RenderHookOptions, RenderOptions } from '@testing-library/react'
 import 'i18n/i18nConfig'
 import { GlobalProvider } from 'providers'
 import React, { ReactElement } from 'react'
@@ -38,5 +38,13 @@ const customRender = (
   return render(ui, { wrapper: component, ...options })
 }
 
+const customRenderHook = <TProps extends Omit<TestWrapperProps, 'children'>, TResult>(
+  ui: (props: TProps) => TResult,
+  { initialProps, ...options }: { initialProps?: TProps } & Omit<RenderHookOptions<TProps>, 'wrapper'> = {}
+) => {
+  const component = (rest: any) => <TestWrapper {...rest} {...(initialProps ?? {})} />
+  return renderHook<TResult, TProps>(ui as any, { wrapper: component, ...options })
+}
+
 export * from '@testing-library/react'
-export { customRender as render }
+export { customRender as render, customRenderHook as renderHook }

@@ -78,8 +78,6 @@ describe('Search component', () => {
     expect(onClickFn).not.toHaveBeenCalled()
 
     fireEvent.click(button)
-    // fireEvent.click(button)
     expect(onClickFn).toHaveBeenCalled()
-    // expect(onClickFn).toHaveBeenCalledOnce()
   })
 })

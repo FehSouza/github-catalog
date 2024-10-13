@@ -1,10 +1,10 @@
 import { Box, Divider, Typography } from '@mui/material'
+import { useMutation } from '@tanstack/react-query'
 import { NotFoundError, Search, UnexpectedError } from 'components'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { getUser } from 'services'
-import useSWRMutation from 'swr/mutation'
 
 interface DetailsProps {
   title: string
@@ -15,13 +15,14 @@ export const Details = ({ title }: DetailsProps) => {
   const [value, setValue] = useState('')
   const navigate = useNavigate()
 
-  const { error, trigger, isMutating } = useSWRMutation(`api/users/${value}`, () => getUser(value), {
-    rollbackOnError: false,
+  const { isPending, error, mutateAsync } = useMutation({
+    mutationKey: ['api/users', value],
+    mutationFn: getUser,
   })
 
   const handleRequestUser = async () => {
-    const user = await trigger()
-    navigate(`./${user.login}`)
+    const user = await mutateAsync(value)
+    if (user) navigate(`./${value}`)
   }
 
   return (
@@ -30,12 +31,12 @@ export const Details = ({ title }: DetailsProps) => {
         {t(title)}
       </Typography>
 
-      <Search setValue={setValue} error={error} trigger={handleRequestUser} isMutating={isMutating} />
+      <Search setValue={setValue} error={error} trigger={handleRequestUser} isMutating={isPending} />
 
       <Divider variant="middle" aria-hidden />
 
-      {!!error && error?.request.status === 404 && <NotFoundError />}
-      {!!error && error?.request.status !== 404 && <UnexpectedError />}
+      {!!error && error?.response?.status === 404 && <NotFoundError />}
+      {!!error && error?.response?.status !== 404 && <UnexpectedError />}
     </Box>
   )
 }
