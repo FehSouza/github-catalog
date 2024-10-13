@@ -1,6 +1,5 @@
 import { MOCK_GET_USER } from 'mocks'
-import { act } from 'react'
-import { render, renderHook, screen, waitFor } from 'utils/testUtils'
+import { act, render, renderHook, screen, waitFor } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
 import { Home, useHome } from '.'
 
@@ -30,7 +29,7 @@ describe('Home page', () => {
     const { result } = renderHook(useHome)
 
     act(() => result.current.setValue('test'))
-    result.current.handleRequestUser()
+    act(() => result.current.handleRequestUser())
 
     await waitFor(() => expect(result.current.data).toStrictEqual(MOCK_GET_USER))
   })

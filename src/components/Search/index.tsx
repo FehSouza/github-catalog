@@ -17,10 +17,12 @@ export const Search = ({ value, setValue, error, trigger, isMutating }: SearchPr
 
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value.trim()
+    console.log({ value })
     setValue(value)
   }
 
   const handleSearch = () => {
+    console.log('clicou search')
     if (timerDebounceSearch.current) clearTimeout(timerDebounceSearch.current)
     timerDebounceSearch.current = setTimeout(() => trigger(), 750)
   }

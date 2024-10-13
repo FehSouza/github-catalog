@@ -11,7 +11,7 @@ export const useHome = () => {
   const userLogin = searchParams.get('userLogin')
   const [value, setValue] = useState(userLogin ?? '')
 
-  const { isPending, error, data, mutate, mutateAsync } = useMutation({
+  const { isPending, error, data, mutate } = useMutation({
     mutationKey: ['api/users', value],
     mutationFn: getUser,
   })
@@ -20,9 +20,9 @@ export const useHome = () => {
     if (!!userLogin) mutate(userLogin)
   }, [])
 
-  const handleRequestUser = async () => {
-    const user = await mutateAsync(value)
-    if (!!user) setSearchParams(new URLSearchParams({ userLogin: value }))
+  const handleRequestUser =  () => {
+    mutate(value)
+    setSearchParams(new URLSearchParams({ userLogin: value }))
   }
 
   return { value, setValue, isPending, error, data, handleRequestUser }
