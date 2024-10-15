@@ -1,5 +1,4 @@
 import { languages } from 'i18n/languages'
-import { MOCK_GET_USER_NOT_FOUND } from 'mocks'
 import { fireEvent, render, screen } from 'utils/testUtils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Search } from '.'
@@ -20,34 +19,22 @@ describe('Search component', () => {
   })
 
   it('Should render the Search component', () => {
-    render(<Search setValue={() => {}} error={undefined} trigger={trigger} isMutating={false} />)
+    render(<Search setValue={() => {}} handleSearch={trigger} />)
     expect(screen.getByTestId('search')).toBeVisible()
     expect(screen.getByTestId('search')).toBeInTheDocument()
-  })
-
-  it('Should render the Search component with error', () => {
-    const errorText = languages['en-US'].translation.Home.errorInput
-
-    render(<Search setValue={() => {}} error={MOCK_GET_USER_NOT_FOUND} trigger={trigger} isMutating={false} />)
-    expect(screen.getByTestId('search')).toHaveTextContent(errorText)
   })
 
   it('Should render the Search component with text button or loading button', () => {
     const textButton = languages['en-US'].translation.Home.textButton
 
-    const { rerender } = render(<Search setValue={() => {}} error={undefined} trigger={trigger} isMutating={false} />)
+    render(<Search setValue={() => {}} handleSearch={trigger} />)
     expect(screen.getByTestId('search')).toHaveTextContent(textButton)
-    expect(() => screen.getByTestId('search-loading')).toThrow('Unable to find an element')
-
-    rerender(<Search setValue={() => {}} error={undefined} trigger={trigger} isMutating={true} />)
-    expect(screen.getByTestId('search')).not.toHaveTextContent(textButton)
-    expect(screen.getByTestId('search-loading')).toBeVisible()
   })
 
   it('Should call the setValue function passed as a parameter', () => {
     const onChangeFn = vi.fn()
 
-    render(<Search setValue={onChangeFn} error={undefined} trigger={trigger} isMutating={false} />)
+    render(<Search setValue={onChangeFn} handleSearch={trigger} />)
     const input = screen.getByRole('searchbox')
     expect(input).toBeVisible()
     expect(input).toBeInTheDocument()
@@ -60,7 +47,7 @@ describe('Search component', () => {
   it('Should call the trigger function passed as a parameter - input', () => {
     const onKeyUpFn = vi.fn()
 
-    render(<Search setValue={() => {}} error={undefined} trigger={onKeyUpFn} isMutating={false} />)
+    render(<Search setValue={() => {}} handleSearch={onKeyUpFn} />)
     const input = screen.getByRole('searchbox')
     expect(onKeyUpFn).not.toHaveBeenCalled()
 
@@ -71,7 +58,7 @@ describe('Search component', () => {
   it('Should call the trigger function passed as a parameter - button', () => {
     const onClickFn = vi.fn()
 
-    render(<Search setValue={() => {}} error={undefined} trigger={onClickFn} isMutating={false} />)
+    render(<Search setValue={() => {}} handleSearch={onClickFn} />)
     const button = screen.getByRole('search')
     expect(button).toBeVisible()
     expect(button).toBeInTheDocument()

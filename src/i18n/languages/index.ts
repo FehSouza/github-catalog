@@ -15,6 +15,7 @@ export const languages = {
         stepNotFoundError4: 'Experimente utilizar diferentes formas de escrever o nome, como abreviações ou apelidos.',
         messageUnexpectedError: 'Erro inesperado...',
         textUnexpectedError: 'Infelizmente, um erro inesperado aconteceu, mas não desista! Tente novamente mais tarde!',
+        loading: 'Carregando...'
       },
 
       Header: {
@@ -67,6 +68,7 @@ export const languages = {
         stepNotFoundError4: 'Try using different forms of the name, such as abbreviations or nicknames.',
         messageUnexpectedError: 'Unexpected error...',
         textUnexpectedError: "Unfortunately, an unexpected error occurred, but don't give up! Try again later!",
+        loading: 'Loading...'
       },
 
       Header: {

@@ -1,12 +1,12 @@
-import { Box, Typography } from '@mui/material'
+import { Box, CircularProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-export const UnexpectedError = () => {
+export const Loading = () => {
   const { t } = useTranslation()
 
   return (
     <Box
-      data-testid="unexpected-error"
+      data-testid="loading"
       component="section"
       maxWidth="lg"
       display="flex"
@@ -19,11 +19,7 @@ export const UnexpectedError = () => {
       px={2}
       py={4}
     >
-      <Typography variant="h2" align="center">
-        {t('Default.messageUnexpectedError')}
-      </Typography>
-
-      <Typography align="center">{t('Default.textUnexpectedError')}</Typography>
+      <CircularProgress size={20} color="inherit" aria-label={t('Default.loading')} />
     </Box>
   )
 }

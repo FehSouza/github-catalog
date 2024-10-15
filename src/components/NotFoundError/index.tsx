@@ -15,10 +15,15 @@ export const NotFoundError = () => {
     <Box
       data-testid="not-found-error"
       component="section"
+      maxWidth="lg"
       display="flex"
       flexDirection="column"
       alignItems="center"
+      justifyContent="center"
       gap={4}
+      flex={1}
+      mx="auto"
+      px={2}
       py={4}
     >
       <Typography variant="h2" align="center">

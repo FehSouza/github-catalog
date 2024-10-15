@@ -9,7 +9,7 @@ export const Footer = () => {
   const year = date.getFullYear()
 
   return (
-    <Box data-testid="footer" component="footer" borderTop={1} borderColor="secondary.contrastText">
+    <Box data-testid="footer" component="footer" borderTop={1} borderColor="secondary.contrastText" mt="auto">
       <Box
         component="section"
         maxWidth="md"

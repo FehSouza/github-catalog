@@ -14,6 +14,7 @@ export default defineConfig({
         '**/assets',
         '**/src/components/index.ts**',
         '**/src/i18n',
+        '**/src/layout/index.ts**',
         '**/src/mocks/index.ts**',
         '**/src/pages/index.ts**',
         '**/src/services/index.ts**',

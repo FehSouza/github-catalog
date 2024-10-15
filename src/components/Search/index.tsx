@@ -1,30 +1,25 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { Box, Button, CircularProgress, InputAdornment, TextField, Typography } from '@mui/material'
+import { Box, Button, InputAdornment, TextField, Typography } from '@mui/material'
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface SearchProps {
-  value?: string
   setValue: Dispatch<SetStateAction<string>>
-  error: any
-  trigger: () => void
-  isMutating: boolean
+  handleSearch: () => void
 }
 
-export const Search = ({ value, setValue, error, trigger, isMutating }: SearchProps) => {
+export const Search = ({ setValue, handleSearch }: SearchProps) => {
   const { t } = useTranslation()
   const timerDebounceSearch = useRef<NodeJS.Timeout>()
 
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value.trim()
-    console.log({ value })
     setValue(value)
   }
 
-  const handleSearch = () => {
-    console.log('clicou search')
+  const handleSearchFn = () => {
     if (timerDebounceSearch.current) clearTimeout(timerDebounceSearch.current)
-    timerDebounceSearch.current = setTimeout(() => trigger(), 750)
+    timerDebounceSearch.current = setTimeout(() => handleSearch(), 750)
   }
 
   useEffect(() => () => clearTimeout(timerDebounceSearch.current), [])
@@ -47,17 +42,15 @@ export const Search = ({ value, setValue, error, trigger, isMutating }: SearchPr
           label={t('Home.labelInput')}
           autoComplete="off"
           onChange={handleChangeSearch}
-          onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
-          error={!!error}
-          helperText={!!error && t('Home.errorInput')}
+          onKeyUp={(e) => e.key === 'Enter' && handleSearchFn()}
           fullWidth
           size="medium"
           color="primary"
-          inputProps={{ role: 'searchbox', defaultValue: value }}
+          inputProps={{ role: 'searchbox' }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <GitHubIcon color={!!error ? 'error' : 'disabled'} />
+                <GitHubIcon color="disabled" />
               </InputAdornment>
             ),
           }}
@@ -65,19 +58,12 @@ export const Search = ({ value, setValue, error, trigger, isMutating }: SearchPr
 
         <Button
           variant="contained"
-          onClick={handleSearch}
+          onClick={handleSearchFn}
           size="large"
           role="search"
-          sx={{
-            minWidth: 96,
-            height: 56,
-            ml: -1,
-            backgroundColor: !!error ? 'error.main' : '',
-            ':hover': { backgroundColor: !!error ? 'error.dark' : '' },
-          }}
+          sx={{ minWidth: 96, height: 56, ml: -1 }}
         >
-          {!isMutating && t('Home.textButton')}
-          {!!isMutating && <CircularProgress data-testid="search-loading" size={20} color="inherit" />}
+          {t('Home.textButton')}
         </Button>
       </Box>
     </Box>

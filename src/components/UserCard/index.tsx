@@ -29,12 +29,17 @@ export const UserCard = ({ user }: UserCardProps) => {
     <Box
       data-testid="user-card"
       component="section"
+      width="100%"
+      maxWidth="lg"
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
       gap={4}
-      my={4}
+      flex={1}
+      mx="auto"
+      px={2}
+      py={4}
       sx={{ [desktop]: { flexDirection: 'row' } }}
     >
       <Box
