@@ -24,7 +24,6 @@ export const useSearchContainer = () => {
     if (isHome || isUser) return navigate(`/user/${value}`)
     if (isRepository) return navigate(`/repositorios/${value}`)
     if (isFollowers) return navigate(`/seguidores/${value}`)
-    navigate(`./${value}`)
   }
 
   return { title, setValue, handleSearch }
