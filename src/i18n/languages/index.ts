@@ -15,7 +15,7 @@ export const languages = {
         stepNotFoundError4: 'Experimente utilizar diferentes formas de escrever o nome, como abreviações ou apelidos.',
         messageUnexpectedError: 'Erro inesperado...',
         textUnexpectedError: 'Infelizmente, um erro inesperado aconteceu, mas não desista! Tente novamente mais tarde!',
-        loading: 'Carregando...'
+        loading: 'Carregando...',
       },
 
       Header: {
@@ -48,6 +48,11 @@ export const languages = {
         linkRepositories: 'Ver repositórios',
         linkFollowers: 'Ver seguidores',
       },
+
+      NotFound: {
+        messageNotFound: 'Infelizmente, não encontramos uma página que corresponda a sua busca.',
+        linkHome: 'Voltar para a Home',
+      },
     },
   },
 
@@ -68,7 +73,7 @@ export const languages = {
         stepNotFoundError4: 'Try using different forms of the name, such as abbreviations or nicknames.',
         messageUnexpectedError: 'Unexpected error...',
         textUnexpectedError: "Unfortunately, an unexpected error occurred, but don't give up! Try again later!",
-        loading: 'Loading...'
+        loading: 'Loading...',
       },
 
       Header: {
@@ -100,6 +105,11 @@ export const languages = {
         linkProfile: 'Access the profile on GitHub',
         linkRepositories: 'View repositories',
         linkFollowers: 'View followers',
+      },
+
+      NotFound: {
+        messageNotFound: "Unfortunately, we couldn't find a page that matches your search.",
+        linkHome: 'Back to Home',
       },
     },
   },

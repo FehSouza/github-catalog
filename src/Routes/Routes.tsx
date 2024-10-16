@@ -1,10 +1,8 @@
 import { Container } from 'layout'
-import { Followers, Repositories, User } from 'pages'
+import { Followers, NotFound, Repositories, User } from 'pages'
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 
 export const AppRoutes = () => {
-  // TODO: fazer página não existente *
-
   return (
     <Routes>
       <Route path="/" element={<Container />}>
@@ -23,6 +21,8 @@ export const AppRoutes = () => {
           <Route path=":userLogin" element={<Followers />} />
         </Route>
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
