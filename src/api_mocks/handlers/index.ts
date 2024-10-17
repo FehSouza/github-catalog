@@ -1,3 +1,3 @@
-import { mockGetUser } from 'services'
+import { mockGetRepositories, mockGetUser } from 'services'
 
-export const handlers = [mockGetUser]
+export const handlers = [mockGetRepositories, mockGetUser]

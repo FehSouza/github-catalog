@@ -25,7 +25,7 @@ export const MOCK_GET_USER = {
   hireable: null,
   bio: 'Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza Teste Fernanda Souza',
   twitter_username: null,
-  public_repos: 34,
+  public_repos: 10,
   public_gists: 0,
   followers: 9,
   following: 28,
