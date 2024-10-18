@@ -3,7 +3,7 @@ import { api, baseURL } from 'api'
 import { MOCK_GET_REPOSITORIES, MOCK_GET_REPOSITORIES_FORBIDDEN, MOCK_GET_REPOSITORIES_NOT_FOUND } from 'mocks'
 import { delay, http, HttpResponse } from 'msw'
 
-export const ITEMS_PER_PAGE = 20
+export const ITEMS_PER_PAGE = 12
 
 export const getRepositories = async (user: string, page: number) => {
   const response = await api.get<Repository[]>(`/users/${user}/repos?per_page=${ITEMS_PER_PAGE}&page=${page ?? 1}`)

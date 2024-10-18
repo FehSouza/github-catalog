@@ -53,6 +53,18 @@ export const languages = {
         messageNotFound: 'Infelizmente, não encontramos uma página que corresponda a sua busca.',
         linkHome: 'Voltar para a Home',
       },
+
+      Repositories: {
+        title: 'Repositórios do usuário {{userLogin}}',
+        empty: 'Este usuário ainda não possui repositórios criados...',
+        name: 'Nome:',
+        createdAt: 'Criado em:',
+        updatedAt: 'Atualizado em:',
+        language: 'Linguagem:',
+        homepage: 'Acessar homepage',
+        link: 'Acessar repositório',
+        showMore: 'Mostrar mais'
+      },
     },
   },
 
@@ -110,6 +122,18 @@ export const languages = {
       NotFound: {
         messageNotFound: "Unfortunately, we couldn't find a page that matches your search.",
         linkHome: 'Back to Home',
+      },
+
+      Repositories: {
+        title: '{{userLogin}} user repositories',
+        empty: 'This user has no repositories created yet...',
+        name: 'Name:',
+        createdAt: 'Created at:',
+        updatedAt: 'Updated at:',
+        language: 'Language:',
+        homepage: 'Access homepage',
+        link: 'Access repository',
+        showMore: 'Show more'
       },
     },
   },

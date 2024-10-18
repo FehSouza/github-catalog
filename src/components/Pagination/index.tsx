@@ -20,6 +20,9 @@ export const Pagination = () => {
 
   const handlePagination = (_e: React.ChangeEvent<unknown>, value: number) => setSearchParams(`page=${value}`)
 
+  // TODO: limitar a paginação na última página existente
+  // TODO: voltar para o topo da página ao paginar
+
   return (
     <PaginationUi
       page={page}

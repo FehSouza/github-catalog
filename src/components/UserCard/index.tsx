@@ -1,7 +1,7 @@
 import PersonIcon from '@mui/icons-material/Person'
 import { Box } from '@mui/material'
 import { User } from '@types'
-import { UserCardLink, UserCardText } from 'components'
+import { CardLink, UserCardText } from 'components'
 import { useTranslation } from 'react-i18next'
 import { theme } from 'styles/theme'
 
@@ -90,9 +90,9 @@ export const UserCard = ({ user }: UserCardProps) => {
         {!!bio && <UserCardText title="Home.bio" text={bio} />}
         <UserCardText title="Home.followers" text={followersText} />
         {!!company && <UserCardText title="Home.company" text={company} />}
-        <UserCardLink link={profile} text="Home.linkProfile" target />
-        <UserCardLink link={`/repositorios/${username}`} text="Home.linkRepositories" />
-        <UserCardLink link={`/seguidores/${username}`} text="Home.linkFollowers" />
+        <CardLink link={profile} text="Home.linkProfile" target />
+        <CardLink link={`/repositorios/${username}`} text="Home.linkRepositories" />
+        <CardLink link={`/seguidores/${username}`} text="Home.linkFollowers" />
       </Box>
     </Box>
   )
