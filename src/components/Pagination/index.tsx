@@ -18,7 +18,10 @@ export const Pagination = () => {
   const totalItems = data?.public_repos ?? 0
   const totalPage = Math.ceil(totalItems / ITEMS_PER_PAGE)
 
-  const handlePagination = (_e: React.ChangeEvent<unknown>, value: number) => setSearchParams(`page=${value}`)
+  const handlePagination = (_e: React.ChangeEvent<unknown>, value: number) => {
+    document.querySelector('#container')?.scrollTo({ top: 0, behavior: 'smooth' })
+    setSearchParams(`page=${value}`)
+  }
 
   // TODO: limitar a paginação na última página existente
   // TODO: voltar para o topo da página ao paginar
