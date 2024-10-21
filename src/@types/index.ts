@@ -41,7 +41,7 @@ export interface Repository {
   private: boolean
   owner: Owner
   html_url: string
-  description: string
+  description?: string | null
   fork: boolean
   url: string
   forks_url: string
@@ -87,11 +87,11 @@ export interface Repository {
   ssh_url: string
   clone_url: string
   svn_url: string
-  homepage: string
+  homepage?: string | null
   size: number
   stargazers_count: number
   watchers_count: number
-  language: string
+  language?: string | null
   has_issues: boolean
   has_projects: boolean
   has_downloads: boolean
@@ -133,5 +133,6 @@ export interface Owner {
   events_url: string
   received_events_url: string
   type: string
+  user_view_type: string
   site_admin: boolean
 }

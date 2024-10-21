@@ -59,6 +59,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 
   return (
     <Card
+      data-testid="repository-card"
       sx={{
         width: '100%',
         height: 'fit-content',
@@ -73,7 +74,15 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
         <CardText title="Repositories.language" text={language} />
 
         {!!star && (
-          <Box position="absolute" top={16} right={16} display="flex" alignItems="center" gap={0.5}>
+          <Box
+            data-testid="repository-card-star"
+            position="absolute"
+            top={16}
+            right={16}
+            display="flex"
+            alignItems="center"
+            gap={0.5}
+          >
             <Typography fontSize={14}>{star}</Typography>
             <StarIcon fontSize="small" />
           </Box>
@@ -97,6 +106,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 
         {!!description && (
           <ExpandMore
+            data-testid="repository-card-button"
             expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
@@ -109,7 +119,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent sx={{ paddingTop: 0 }}>
+        <CardContent data-testid="repository-card-description" sx={{ paddingTop: 0 }}>
           <Typography fontSize={14}>{description}</Typography>
         </CardContent>
       </Collapse>

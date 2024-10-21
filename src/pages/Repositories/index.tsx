@@ -41,7 +41,7 @@ export const Repositories = () => {
   const notFound = !!userResponse.error && userResponse.error.response?.status === 404
   const unexpectedError = !!repositoriesResponse.error && repositoriesResponse.error.response?.status !== 404
 
-  console.log(repositoriesResponse.error)
+  console.log(repositoriesResponse.data)
   if (isLoading) return <Loading />
   if (notFound || !userLogin) return <NotFoundError />
   if (unexpectedError || !repositoriesResponse.data) return <UnexpectedError />
