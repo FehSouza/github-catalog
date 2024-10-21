@@ -1,32 +1,50 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Pagination, Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
-import { Loading, NotFoundError, Pagination, RepositoryCard, UnexpectedError } from 'components'
+import { Loading, NotFoundError, RepositoryCard, UnexpectedError } from 'components'
 import { useTranslation } from 'react-i18next'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { getRepositories } from 'services'
+import { getRepositories, getUser, ITEMS_PER_PAGE } from 'services'
 
 export const Repositories = () => {
   const { t } = useTranslation()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { userLogin } = useParams()
-  if (!userLogin) return null
 
-  const page = searchParams.get('page')
-
-  const { data, error, isPending } = useQuery({
-    queryKey: ['api/repositories', userLogin, page],
-    queryFn: ({ queryKey: [_, user, page] }) => (user ? getRepositories(user, Number(page)) : null),
+  const userResponse = useQuery({
+    queryKey: ['api/users', userLogin],
+    queryFn: ({ queryKey: [_, user] }) => (user ? getUser(user) : null),
     retry: false,
   })
 
-  const isLoading = !!isPending
-  const notFound = !!error && error.response?.status === 404
-  const unexpectedError = !!error && error.response?.status !== 404
-  const notData = !data
+  const page = searchParams.get('page')
+  const publicRepos = userResponse.data?.public_repos
+  const totalItems = publicRepos ?? 0
+  const totalPage = Math.ceil(totalItems / ITEMS_PER_PAGE)
+  const pageNumber = Number(page ?? 1) > totalPage ? totalPage : Number(page ?? 1)
 
+  const repositoriesResponse = useQuery({
+    queryKey: ['api/repositories', userLogin, String(pageNumber), String(publicRepos ?? '')],
+    queryFn: ({ queryKey: [_, user, pageResponse, repositories] }) => {
+      if (!user || !pageResponse || !repositories) return null
+      if (pageResponse !== page) setSearchParams(new URLSearchParams({ page: pageResponse }))
+      return getRepositories(user, Number(pageResponse))
+    },
+    retry: false,
+  })
+
+  const handlePagination = (_e: React.ChangeEvent<unknown>, value: number) => {
+    document.querySelector('#container')?.scrollTo({ top: 0, behavior: 'smooth' })
+    setSearchParams(`page=${value}`)
+  }
+
+  const isLoading = !!userResponse.isPending || !!repositoriesResponse.isPending
+  const notFound = !!userResponse.error && userResponse.error.response?.status === 404
+  const unexpectedError = !!repositoriesResponse.error && repositoriesResponse.error.response?.status !== 404
+
+  console.log(repositoriesResponse.error)
   if (isLoading) return <Loading />
-  if (notFound) return <NotFoundError />
-  if (unexpectedError || notData) return <UnexpectedError />
+  if (notFound || !userLogin) return <NotFoundError />
+  if (unexpectedError || !repositoriesResponse.data) return <UnexpectedError />
 
   return (
     <Box
@@ -44,17 +62,25 @@ export const Repositories = () => {
     >
       <Typography variant="h2">{t('Repositories.title', { userLogin })}</Typography>
 
-      {!data.length && <Typography>{t('Repositories.empty')}</Typography>}
+      {!repositoriesResponse.data.length && <Typography>{t('Repositories.empty')}</Typography>}
 
-      {!!data.length && (
+      {!!repositoriesResponse.data.length && (
         <Grid container gap={2}>
-          {data.map((repository) => (
+          {repositoriesResponse.data.map((repository) => (
             <RepositoryCard key={repository.id} repository={repository} />
           ))}
         </Grid>
       )}
 
-      {!!data.length && <Pagination />}
+      <Pagination
+        page={pageNumber}
+        count={totalPage}
+        onChange={handlePagination}
+        color="primary"
+        variant="outlined"
+        shape="rounded"
+        siblingCount={1}
+      />
     </Box>
   )
 }

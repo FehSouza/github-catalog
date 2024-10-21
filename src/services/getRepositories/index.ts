@@ -11,15 +11,15 @@ export const getRepositories = async (user: string, page: number) => {
   return result
 }
 
-export const mockGetRepositories = http.get(`${baseURL}/users/:user/repos`, async ({ params }) => {
+export const mockGetRepositories = http.get(`${baseURL}/users/:user/repos`, async ({ params, request }) => {
   const id = params.user
+  const searchParams = new URLSearchParams(request.url)
+  const page = searchParams.get('page')
   await delay()
 
   if (id === 'error') return HttpResponse.json(MOCK_GET_REPOSITORIES_FORBIDDEN, { status: 403 })
   if (id === 'notFound') return HttpResponse.json(MOCK_GET_REPOSITORIES_NOT_FOUND, { status: 404 })
 
-  const search = window.location.search
-  const [_, page] = search.split('page=')
   const pageFormatted = !!page ? Number(page.replace(/\D/g, '')) : 1
 
   const start = (pageFormatted - 1) * ITEMS_PER_PAGE
