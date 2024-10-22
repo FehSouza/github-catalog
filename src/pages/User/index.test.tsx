@@ -2,7 +2,7 @@ import { render, screen, waitFor } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
 import { User } from '.'
 
-describe.only('User page', () => {
+describe('User page', () => {
   it('Should render User page', async () => {
     render(<User />, { initialProps: { entry: ['/user/test'], routes: ['/user/:userLogin'] } })
     await waitFor(() => expect(screen.getByTestId('user-card')).toBeVisible())

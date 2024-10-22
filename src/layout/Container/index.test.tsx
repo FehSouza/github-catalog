@@ -2,7 +2,7 @@ import { act, render, screen } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
 import { Container } from '.'
 
-describe.only('Container layout', () => {
+describe('Container layout', () => {
   it('Should render Container layout', async () => {
     const promise = Promise.resolve()
 

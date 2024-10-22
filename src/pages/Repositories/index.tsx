@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { getRepositories, getUser, ITEMS_PER_PAGE } from 'services'
 
-export const Repositories = () => {
-  const { t } = useTranslation()
+export const useRepositories = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const { userLogin } = useParams()
 
@@ -39,15 +38,32 @@ export const Repositories = () => {
 
   const isLoading = !!userResponse.isPending || !!repositoriesResponse.isPending
   const notFound = !!userResponse.error && userResponse.error.response?.status === 404
-  const unexpectedError = !!repositoriesResponse.error && repositoriesResponse.error.response?.status !== 404
+  const unexpectedError = !!userResponse.error && userResponse.error.response?.status !== 404
 
-  console.log(repositoriesResponse.data)
+  return {
+    userLogin,
+    isLoading,
+    notFound,
+    unexpectedError,
+    repositories: repositoriesResponse.data,
+    pageNumber,
+    totalPage,
+    handlePagination,
+  }
+}
+
+export const Repositories = () => {
+  const { t } = useTranslation()
+  const { userLogin, isLoading, notFound, unexpectedError, repositories, pageNumber, totalPage, handlePagination } =
+    useRepositories()
+
   if (isLoading) return <Loading />
   if (notFound || !userLogin) return <NotFoundError />
-  if (unexpectedError || !repositoriesResponse.data) return <UnexpectedError />
+  if (unexpectedError || !repositories) return <UnexpectedError />
 
   return (
     <Box
+      data-testid="repositories-page"
       component="section"
       width="100%"
       maxWidth="lg"
@@ -62,25 +78,29 @@ export const Repositories = () => {
     >
       <Typography variant="h2">{t('Repositories.title', { userLogin })}</Typography>
 
-      {!repositoriesResponse.data.length && <Typography>{t('Repositories.empty')}</Typography>}
+      {!repositories.length && (
+        <Typography data-testid="repositories-page-no-data">{t('Repositories.empty')}</Typography>
+      )}
 
-      {!!repositoriesResponse.data.length && (
+      {!!repositories.length && (
         <Grid container gap={2}>
-          {repositoriesResponse.data.map((repository) => (
+          {repositories.map((repository) => (
             <RepositoryCard key={repository.id} repository={repository} />
           ))}
         </Grid>
       )}
 
-      <Pagination
-        page={pageNumber}
-        count={totalPage}
-        onChange={handlePagination}
-        color="primary"
-        variant="outlined"
-        shape="rounded"
-        siblingCount={1}
-      />
+      {!!repositories.length && (
+        <Pagination
+          page={pageNumber}
+          count={totalPage}
+          onChange={handlePagination}
+          color="primary"
+          variant="outlined"
+          shape="rounded"
+          siblingCount={1}
+        />
+      )}
     </Box>
   )
 }

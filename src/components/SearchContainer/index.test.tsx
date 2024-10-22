@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { SearchContainer, useSearchContainer } from '.'
 import { languages } from 'i18n/languages'
 
-describe.only('SearchContainer component', () => {
+describe('SearchContainer component', () => {
   it('Should render SearchContainer component', () => {
     render(<SearchContainer />)
     expect(screen.getByTestId('search-container')).toBeVisible()

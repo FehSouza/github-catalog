@@ -17,6 +17,7 @@ export const mockGetRepositories = http.get(`${baseURL}/users/:user/repos`, asyn
   const page = searchParams.get('page')
   await delay()
 
+  if (id === 'noData') return HttpResponse.json([], { status: 200 })
   if (id === 'error') return HttpResponse.json(MOCK_GET_REPOSITORIES_FORBIDDEN, { status: 403 })
   if (id === 'notFound') return HttpResponse.json(MOCK_GET_REPOSITORIES_NOT_FOUND, { status: 404 })
 
