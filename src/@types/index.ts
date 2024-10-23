@@ -119,7 +119,7 @@ export interface Owner {
   login: string
   id: number
   node_id: string
-  avatar_url: string
+  avatar_url: string | null
   gravatar_id: string
   url: string
   html_url: string
@@ -141,7 +141,7 @@ export interface Follower {
   login: string
   id: number
   node_id: string
-  avatar_url: string
+  avatar_url: string | null
   gravatar_id: string
   url: string
   html_url: string
