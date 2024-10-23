@@ -45,4 +45,17 @@ describe('UserCard component', () => {
     const [__, textFollower] = languages['en-US'].translation.Home.followers_one.split('}} ')
     expect(screen.getByTestId('user-card')).toHaveTextContent(`${followers2} ${textFollower}`)
   })
+
+  it('Should render the UserCard component with the right number of repositories', () => {
+    const { rerender } = render(<UserCard user={MOCK_GET_USER} />)
+    const repositories1 = MOCK_GET_USER.public_repos.toString()
+    const [_, textRepositories] = languages['en-US'].translation.Home.repositories_other.split('}} ')
+    expect(screen.getByTestId('user-card')).toHaveTextContent(`${repositories1} ${textRepositories}`)
+
+    const NEW_MOCK_GET_USER = { ...MOCK_GET_USER, public_repos: 1 }
+    rerender(<UserCard user={NEW_MOCK_GET_USER} />)
+    const repositories2 = NEW_MOCK_GET_USER.public_repos.toString()
+    const [__, textRepository] = languages['en-US'].translation.Home.repositories_one.split('}} ')
+    expect(screen.getByTestId('user-card')).toHaveTextContent(`${repositories2} ${textRepository}`)
+  })
 })
