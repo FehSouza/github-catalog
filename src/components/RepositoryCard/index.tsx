@@ -67,7 +67,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
         [desktop]: { maxWidth: 'calc((100% - 32px) / 3)' },
       }}
     >
-      <CardContent sx={{ position: 'relative' }}>
+      <CardContent sx={{ position: 'relative', paddingRight: 10 }}>
         <CardText title="Default.name" text={name} />
         {!!createdAt && <CardText title="Repositories.createdAt" text={createdAt} />}
         {!!updatedAt && <CardText title="Repositories.updatedAt" text={updatedAt} />}
@@ -81,7 +81,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
             right={16}
             display="flex"
             alignItems="center"
-            gap={0.5}
+            gap={0.25}
           >
             <Typography fontSize={14}>{star}</Typography>
             <StarIcon fontSize="small" />
