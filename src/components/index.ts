@@ -1,5 +1,6 @@
 export * from './CardLink'
 export * from './CardText'
+export * from './FollowerCard'
 export * from './Footer'
 export * from './Header'
 export * from './Loading'

@@ -68,7 +68,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
       }}
     >
       <CardContent sx={{ position: 'relative' }}>
-        <CardText title="Repositories.name" text={name} />
+        <CardText title="Default.name" text={name} />
         {!!createdAt && <CardText title="Repositories.createdAt" text={createdAt} />}
         {!!updatedAt && <CardText title="Repositories.updatedAt" text={updatedAt} />}
         <CardText title="Repositories.language" text={language} />

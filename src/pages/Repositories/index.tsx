@@ -76,10 +76,14 @@ export const Repositories = () => {
       px={2}
       py={4}
     >
-      <Typography variant="h2">{t('Repositories.title', { userLogin })}</Typography>
+      <Typography variant="h2" align="center">
+        {t('Repositories.title', { userLogin })}
+      </Typography>
 
       {!repositories.length && (
-        <Typography data-testid="repositories-page-no-data">{t('Repositories.empty')}</Typography>
+        <Typography data-testid="repositories-page-no-data" align="center">
+          {t('Repositories.empty')}
+        </Typography>
       )}
 
       {!!repositories.length && (

@@ -17,11 +17,14 @@ export const UserCard = ({ user }: UserCardProps) => {
   const name = user.name
   const username = user.login
   const image = user.avatar_url
-  const altImage = t('Home.altImage', { nameProfile: name ?? username })
+  const altImage = t('Default.altImage', { nameProfile: name ?? username })
   const bio = user.bio
   const followers = user.followers
   const followersText =
     followers === 1 ? t('Home.followers_one', { followers }) : t('Home.followers_other', { followers })
+  const repositories = user.public_repos
+  const repositoriesText =
+  repositories === 1 ? t('Home.repositories_one', { repositories }) : t('Home.repositories_other', { repositories })
   const company = user.company
   const profile = user.html_url
 
@@ -59,7 +62,7 @@ export const UserCard = ({ user }: UserCardProps) => {
           <PersonIcon
             data-testid="user-card-without-image"
             color="secondary"
-            aria-label={t('Home.altWithoutImage')}
+            aria-label={t('Default.altWithoutImage')}
             sx={{ fontSize: 64, transition: '0.35s ease-in-out' }}
           />
         )}
@@ -85,12 +88,13 @@ export const UserCard = ({ user }: UserCardProps) => {
         gap={2}
         sx={{ [desktop]: { alignItems: 'flex-start', gap: 1 } }}
       >
-        {!!name && <UserCardText title="Home.name" text={name} />}
+        {!!name && <UserCardText title="Default.name" text={name} />}
         <UserCardText title="Home.username" text={username} />
         {!!bio && <UserCardText title="Home.bio" text={bio} />}
         <UserCardText title="Home.followers" text={followersText} />
+        <UserCardText title="Home.repositories" text={repositoriesText} />
         {!!company && <UserCardText title="Home.company" text={company} />}
-        <CardLink link={profile} text="Home.linkProfile" target />
+        <CardLink link={profile} text="Default.linkProfile" target />
         <CardLink link={`/repositorios/${username}`} text="Home.linkRepositories" />
         <CardLink link={`/seguidores/${username}`} text="Home.linkFollowers" />
       </Box>
