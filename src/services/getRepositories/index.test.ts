@@ -25,4 +25,9 @@ describe('getRepositories', () => {
       'Request failed with status code 404'
     )
   })
+
+  it('Should return empty repositories', async () => {
+    const SUT = await getRepositories('noData', 1)
+    expect(SUT).toStrictEqual([])
+  })
 })

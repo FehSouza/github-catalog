@@ -27,7 +27,7 @@ export const MOCK_GET_USER = {
   twitter_username: null,
   public_repos: 10,
   public_gists: 0,
-  followers: 24,
+  followers: 12,
   following: 28,
   created_at: '2021-10-11T18:58:25Z',
   updated_at: '2024-06-03T12:29:27Z',
