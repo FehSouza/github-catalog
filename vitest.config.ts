@@ -19,6 +19,7 @@ export default defineConfig({
         '**/src/pages/index.ts**',
         '**/src/services/index.ts**',
         '**/src/styles',
+        '**/tests',
         ...coverageConfigDefaults.exclude,
       ],
     },
