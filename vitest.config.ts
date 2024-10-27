@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./testConfig.ts', './jest-setup.ts'],
-    exclude: [...defaultExclude],
+    exclude: ['**/tests' ,...defaultExclude],
     coverage: {
       exclude: [
         '**/assets',
