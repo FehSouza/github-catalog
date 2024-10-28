@@ -6,14 +6,15 @@ interface CardLinkProps {
   link: string
   target?: boolean
   text: string
+  testId?: string
 }
 
-export const CardLink = ({ link, target, text }: CardLinkProps) => {
+export const CardLink = ({ link, target, text, testId }: CardLinkProps) => {
   const { t } = useTranslation()
 
   return (
     <Link
-      data-testid="card-link"
+      data-testid={testId ? `card-link-${testId}` : 'card-link'}
       component={LinkRouter}
       to={link}
       target={target ? '_blank' : ''}

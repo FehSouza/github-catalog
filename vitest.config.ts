@@ -20,6 +20,8 @@ export default defineConfig({
         '**/src/services/index.ts**',
         '**/src/styles',
         '**/tests',
+        '**/playwright.config.ts',
+        '**/playwright-report',
         ...coverageConfigDefaults.exclude,
       ],
     },

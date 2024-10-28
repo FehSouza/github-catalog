@@ -24,7 +24,7 @@ export const UserCard = ({ user }: UserCardProps) => {
     followers === 1 ? t('Home.followers_one', { followers }) : t('Home.followers_other', { followers })
   const repositories = user.public_repos
   const repositoriesText =
-  repositories === 1 ? t('Home.repositories_one', { repositories }) : t('Home.repositories_other', { repositories })
+    repositories === 1 ? t('Home.repositories_one', { repositories }) : t('Home.repositories_other', { repositories })
   const company = user.company
   const profile = user.html_url
 
@@ -94,9 +94,9 @@ export const UserCard = ({ user }: UserCardProps) => {
         <UserCardText title="Home.followers" text={followersText} />
         <UserCardText title="Home.repositories" text={repositoriesText} />
         {!!company && <UserCardText title="Home.company" text={company} />}
-        <CardLink link={profile} text="Default.linkProfile" target />
-        <CardLink link={`/repositorios/${username}`} text="Home.linkRepositories" />
-        <CardLink link={`/seguidores/${username}`} text="Home.linkFollowers" />
+        <CardLink link={profile} text="Default.linkProfile" target testId="profile" />
+        <CardLink link={`/repositorios/${username}`} text="Home.linkRepositories" testId="repositories" />
+        <CardLink link={`/seguidores/${username}`} text="Home.linkFollowers" testId="followers" />
       </Box>
     </Box>
   )

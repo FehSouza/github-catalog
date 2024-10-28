@@ -8,4 +8,10 @@ describe('CardLink component', () => {
     expect(screen.getByTestId('card-link')).toBeVisible()
     expect(screen.getByTestId('card-link')).toBeInTheDocument()
   })
+
+  it('Should render CardLink component with the test id complement', () => {
+    render(<CardLink link="/test" text="Test" testId='test' />)
+    expect(screen.getByTestId('card-link-test')).toBeVisible()
+    expect(screen.getByTestId('card-link-test')).toBeInTheDocument()
+  })
 })
