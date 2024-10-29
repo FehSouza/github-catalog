@@ -5,22 +5,23 @@ import { RepositoryCard } from '.'
 
 describe('RepositoryCard component', () => {
   it('Should render RepositoryCard component', () => {
-    render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} />)
-    expect(screen.getByTestId('repository-card')).toBeVisible()
-    expect(screen.getByTestId('repository-card')).toBeInTheDocument()
+    const index = 1
+    render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} index={index} />)
+    expect(screen.getByTestId(`repository-card-${index}`)).toBeVisible()
+    expect(screen.getByTestId(`repository-card-${index}`)).toBeInTheDocument()
   })
 
   it('Should render RepositoryCard component - stars and homepage', () => {
-    const { rerender } = render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} />)
+    const { rerender } = render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} index={1} />)
     expect(() => screen.getByTestId('repository-card-star')).toThrow('Unable to find an element')
 
-    rerender(<RepositoryCard repository={MOCK_GET_REPOSITORIES[1]} />)
+    rerender(<RepositoryCard repository={MOCK_GET_REPOSITORIES[1]} index={1} />)
     expect(screen.getByTestId('repository-card-star')).toBeVisible()
     expect(screen.getByTestId('repository-card-star')).toBeInTheDocument()
   })
 
   it('should open the descriptions when clicking the button', async () => {
-    render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} />)
+    render(<RepositoryCard repository={MOCK_GET_REPOSITORIES[0]} index={1} />)
     const button = screen.getByTestId('repository-card-button')
 
     expect(button).toBeVisible()

@@ -20,6 +20,7 @@ import { formatDate } from 'utils'
 
 interface RepositoryCardProps {
   repository: Repository
+  index: number
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -42,7 +43,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 const tablet = theme.breakpoints.up('md')
 const desktop = theme.breakpoints.up('lg')
 
-export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
+export const RepositoryCard = ({ repository, index }: RepositoryCardProps) => {
   const { t } = useTranslation()
   const [expanded, setExpanded] = useState(false)
 
@@ -59,7 +60,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 
   return (
     <Card
-      data-testid="repository-card"
+      data-testid={`repository-card-${index}`}
       sx={{
         width: '100%',
         height: 'fit-content',

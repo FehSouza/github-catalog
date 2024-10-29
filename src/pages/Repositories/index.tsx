@@ -88,8 +88,8 @@ export const Repositories = () => {
 
       {!!repositories.length && (
         <Grid container gap={2}>
-          {repositories.map((repository) => (
-            <RepositoryCard key={repository.id} repository={repository} />
+          {repositories.map((repository, i) => (
+            <RepositoryCard key={repository.id} repository={repository} index={i} />
           ))}
         </Grid>
       )}
