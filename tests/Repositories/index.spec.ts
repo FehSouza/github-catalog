@@ -57,4 +57,24 @@ test.describe('Repositories', () => {
     await expect(noData).toBeVisible()
     await expect(noData).toBeInViewport()
   })
+
+  test('Should return repositories', async ({ page }) => {
+    await page.goto('https://github-catalog.vercel.app/repositorios')
+
+    const input = page.getByRole('searchbox')
+    await expect(input).toBeVisible()
+    await expect(input).toBeInViewport()
+
+    const user = 'FehSouza'
+
+    input.fill(user)
+    input.press('Enter')
+
+    const url = `https://github-catalog.vercel.app/repositorios/${user}`
+    await page.waitForURL(url)
+
+    const repository = page.getByTestId('repository-card-0')
+    await expect(repository).toBeVisible()
+    await expect(repository).toBeInViewport()
+  })
 })

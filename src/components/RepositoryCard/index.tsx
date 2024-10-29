@@ -103,7 +103,7 @@ export const RepositoryCard = ({ repository, index }: RepositoryCardProps) => {
         }}
       >
         <CardLink link={url} text="Repositories.link" target />
-        {!!homepage && <CardLink link={homepage} text="Repositories.homepage" target />}
+        {!!homepage && <CardLink link={homepage} text="Repositories.homepage" target testId="homepage" />}
 
         {!!description && (
           <ExpandMore
