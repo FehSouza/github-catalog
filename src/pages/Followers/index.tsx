@@ -96,6 +96,7 @@ export const Followers = () => {
 
       {!!followers.length && (
         <Pagination
+          data-testid="pagination"
           page={pageNumber}
           count={totalPage}
           onChange={handlePagination}

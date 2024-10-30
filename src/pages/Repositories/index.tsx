@@ -96,6 +96,7 @@ export const Repositories = () => {
 
       {!!repositories.length && (
         <Pagination
+          data-testid="pagination"
           page={pageNumber}
           count={totalPage}
           onChange={handlePagination}
