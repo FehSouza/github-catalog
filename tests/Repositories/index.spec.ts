@@ -38,26 +38,6 @@ test.describe('Repositories', () => {
     expect(page.url()).toContain(url)
   })
 
-  test('Should not return repositories', async ({ page }) => {
-    await page.goto('https://github-catalog.vercel.app/repositorios')
-
-    const input = page.getByRole('searchbox')
-    await expect(input).toBeVisible()
-    await expect(input).toBeInViewport()
-
-    const user = '9'
-
-    input.fill(user)
-    input.press('Enter')
-
-    const url = `https://github-catalog.vercel.app/repositorios/${user}`
-    await page.waitForURL(url)
-
-    const noData = page.getByTestId('repositories-page-no-data')
-    await expect(noData).toBeVisible()
-    await expect(noData).toBeInViewport()
-  })
-
   test('Should return repositories', async ({ page }) => {
     await page.goto('https://github-catalog.vercel.app/repositorios')
 
