@@ -1,17 +1,17 @@
+import { MOCK_GET_FOLLOWERS } from 'mocks'
 import { describe, expect, it } from 'vitest'
 import { getFollowers } from '.'
-import { MOCK_GET_FOLLOWERS } from 'mocks'
 
 describe('getFollowers', () => {
   it('Should return a valid result', async () => {
     const SUT1 = await getFollowers('test', 1)
     expect(SUT1).toStrictEqual(MOCK_GET_FOLLOWERS)
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     const SUT2 = await getFollowers('test')
     expect(SUT2).toStrictEqual(MOCK_GET_FOLLOWERS)
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     const SUT3 = await getFollowers('test', '')
     expect(SUT3).toStrictEqual(MOCK_GET_FOLLOWERS)
   })

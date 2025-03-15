@@ -1,8 +1,9 @@
+import { useSearchContainer } from 'hooks'
+import { languages } from 'i18n/languages'
 import { useLocation } from 'react-router-dom'
 import { act, render, renderHook, screen, waitFor } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
-import { SearchContainer, useSearchContainer } from '.'
-import { languages } from 'i18n/languages'
+import { SearchContainer } from '.'
 
 describe('SearchContainer component', () => {
   it('Should render SearchContainer component', () => {

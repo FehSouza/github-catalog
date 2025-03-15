@@ -27,17 +27,13 @@ interface ExpandMoreProps extends IconButtonProps {
   expand: boolean
 }
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props
-  return <IconButton {...other} />
-})(({ theme }) => ({
+const ExpandMore = styled(IconButton, {
+  shouldForwardProp: (prop) => prop !== 'expand',
+})<ExpandMoreProps>(({ theme, expand }) => ({
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
-  variants: [
-    { props: ({ expand }) => !expand, style: { transform: 'rotate(0deg)' } },
-    { props: ({ expand }) => !!expand, style: { transform: 'rotate(180deg)' } },
-  ],
+  transform: expand ? 'rotate(180deg)' : 'rotate(0deg)',
 }))
 
 const tablet = theme.breakpoints.up('md')

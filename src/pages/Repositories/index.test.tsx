@@ -1,7 +1,8 @@
+import { useRepositories } from 'hooks'
 import { useLocation } from 'react-router-dom'
 import { act, render, renderHook, screen, waitFor } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
-import { Repositories, useRepositories } from '.'
+import { Repositories } from '.'
 
 describe('Repositories page', () => {
   it('Should render the Repositories page with repositories', async () => {

@@ -7,11 +7,11 @@ describe('getRepositories', () => {
     const SUT1 = await getRepositories('test', 1)
     expect(SUT1).toStrictEqual(MOCK_GET_REPOSITORIES)
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     const SUT2 = await getRepositories('test')
     expect(SUT2).toStrictEqual(MOCK_GET_REPOSITORIES)
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     const SUT3 = await getRepositories('test', '')
     expect(SUT3).toStrictEqual(MOCK_GET_REPOSITORIES)
   })

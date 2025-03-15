@@ -27,30 +27,30 @@ describe('MenuItem component', () => {
     // Name
     const { rerender } = render(<MenuItem name="" link="/test" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name={undefined} link="/test" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name={null} link="/test" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
 
     // Link
     rerender(<MenuItem name="Test" link="" ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name="Test" link={undefined} ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name="Test" link={null} ariaLabel="Test" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
 
     // Aria label
     rerender(<MenuItem name="Test" link="/test" ariaLabel="" index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name="Test" link="/test" ariaLabel={undefined} index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<MenuItem name="Test" link="/test" ariaLabel={null} index={0} />)
     expect(() => screen.getByTestId('menu-item-0')).toThrow('Unable to find an element')
   })

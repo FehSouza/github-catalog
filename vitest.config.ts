@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./testConfig.ts', './jest-setup.ts'],
-    exclude: ['**/tests' ,...defaultExclude],
+    exclude: ['**/tests', ...defaultExclude],
     coverage: {
       exclude: [
         '**/assets',
@@ -22,6 +22,9 @@ export default defineConfig({
         '**/tests',
         '**/playwright.config.ts',
         '**/playwright-report',
+        '**/src/@types',
+        '**/src/Routes',
+        '**/public',
         ...coverageConfigDefaults.exclude,
       ],
     },

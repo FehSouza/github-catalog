@@ -16,17 +16,17 @@ describe('CardText component', () => {
     rerender(<CardText title="title" text="" />)
     expect(() => screen.getByTestId('card-text')).toThrow('Unable to find an element')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<CardText title={undefined} text="" />)
     expect(() => screen.getByTestId('card-text')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<CardText title="" text={undefined} />)
     expect(() => screen.getByTestId('card-text')).toThrow('Unable to find an element')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<CardText title={null} text="" />)
     expect(() => screen.getByTestId('card-text')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<CardText title="" text={null} />)
     expect(() => screen.getByTestId('card-text')).toThrow('Unable to find an element')
   })
@@ -40,7 +40,7 @@ describe('CardText component', () => {
     expect(screen.getByTestId('card-text')).toHaveTextContent('1')
     expect(screen.getByTestId('card-text')).toHaveTextContent('2')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<CardText title={10} text={20} />)
     expect(screen.getByTestId('card-text')).toHaveTextContent('10')
     expect(screen.getByTestId('card-text')).toHaveTextContent('20')

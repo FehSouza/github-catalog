@@ -16,17 +16,17 @@ describe('UserCardText component', () => {
     rerender(<UserCardText title="title" text="" />)
     expect(() => screen.getByTestId('user-card-text')).toThrow('Unable to find an element')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<UserCardText title={undefined} text="" />)
     expect(() => screen.getByTestId('user-card-text')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<UserCardText title="" text={undefined} />)
     expect(() => screen.getByTestId('user-card-text')).toThrow('Unable to find an element')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<UserCardText title={null} text="" />)
     expect(() => screen.getByTestId('user-card-text')).toThrow('Unable to find an element')
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<UserCardText title="" text={null} />)
     expect(() => screen.getByTestId('user-card-text')).toThrow('Unable to find an element')
   })
@@ -40,7 +40,7 @@ describe('UserCardText component', () => {
     expect(screen.getByTestId('user-card-text')).toHaveTextContent('1')
     expect(screen.getByTestId('user-card-text')).toHaveTextContent('2')
 
-    // @ts-ignore
+    // @ts-expect-error for tests
     rerender(<UserCardText title={10} text={20} />)
     expect(screen.getByTestId('user-card-text')).toHaveTextContent('10')
     expect(screen.getByTestId('user-card-text')).toHaveTextContent('20')

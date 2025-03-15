@@ -1,7 +1,8 @@
+import { useFollowers } from 'hooks'
 import { useLocation } from 'react-router-dom'
 import { act, render, renderHook, screen, waitFor } from 'utils/testUtils'
 import { describe, expect, it } from 'vitest'
-import { Followers, useFollowers } from '.'
+import { Followers } from '.'
 
 describe('Followers page', () => {
   it('Should render the Followers page with followers', async () => {

@@ -36,26 +36,26 @@ describe('UserCard component', () => {
   it('Should render the UserCard component with the right number of followers', () => {
     const { rerender } = render(<UserCard user={MOCK_GET_USER} />)
     const followers1 = MOCK_GET_USER.followers.toString()
-    const [_, textFollowers] = languages['en-US'].translation.Home.followers_other.split('}} ')
+    const [, textFollowers] = languages['en-US'].translation.Home.followers_other.split('}} ')
     expect(screen.getByTestId('user-card')).toHaveTextContent(`${followers1} ${textFollowers}`)
 
     const NEW_MOCK_GET_USER = { ...MOCK_GET_USER, followers: 1 }
     rerender(<UserCard user={NEW_MOCK_GET_USER} />)
     const followers2 = NEW_MOCK_GET_USER.followers.toString()
-    const [__, textFollower] = languages['en-US'].translation.Home.followers_one.split('}} ')
+    const [, textFollower] = languages['en-US'].translation.Home.followers_one.split('}} ')
     expect(screen.getByTestId('user-card')).toHaveTextContent(`${followers2} ${textFollower}`)
   })
 
   it('Should render the UserCard component with the right number of repositories', () => {
     const { rerender } = render(<UserCard user={MOCK_GET_USER} />)
     const repositories1 = MOCK_GET_USER.public_repos.toString()
-    const [_, textRepositories] = languages['en-US'].translation.Home.repositories_other.split('}} ')
+    const [, textRepositories] = languages['en-US'].translation.Home.repositories_other.split('}} ')
     expect(screen.getByTestId('user-card')).toHaveTextContent(`${repositories1} ${textRepositories}`)
 
     const NEW_MOCK_GET_USER = { ...MOCK_GET_USER, public_repos: 1 }
     rerender(<UserCard user={NEW_MOCK_GET_USER} />)
     const repositories2 = NEW_MOCK_GET_USER.public_repos.toString()
-    const [__, textRepository] = languages['en-US'].translation.Home.repositories_one.split('}} ')
+    const [, textRepository] = languages['en-US'].translation.Home.repositories_one.split('}} ')
     expect(screen.getByTestId('user-card')).toHaveTextContent(`${repositories2} ${textRepository}`)
   })
 })

@@ -8,10 +8,10 @@ const originalTimeout = setTimeout
 
 describe('Search component', () => {
   beforeEach(() => {
-    window.setTimeout = ((fn: (...params: any) => void, _ms?: number | undefined, ...args: any[]): number => {
+    window.setTimeout = ((fn: (...params: unknown[]) => void, _ms?: number | undefined, ...args: unknown[]): number => {
       fn(...args)
       return 1
-    }) as any
+    }) as typeof setTimeout
   })
 
   afterEach(() => {

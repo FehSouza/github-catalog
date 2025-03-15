@@ -27,19 +27,19 @@ describe('formatDate', () => {
   })
 
   it('Should return undefined when passing date as undefined or null', () => {
-    //@ts-expect-error
+    // @ts-expect-error for tests
     const SUT1 = formatDate(undefined)
     const expected1 = undefined
     expect(SUT1).toBe(expected1)
 
-    //@ts-expect-error
+    // @ts-expect-error for tests
     const SUT2 = formatDate(null)
     const expected2 = undefined
     expect(SUT2).toBe(expected2)
   })
 
   it('Should return undefined when passing the date as a number', () => {
-    //@ts-expect-error
+    // @ts-expect-error for tests
     const SUT = formatDate(2)
     const expected = undefined
     expect(SUT).toBe(expected)

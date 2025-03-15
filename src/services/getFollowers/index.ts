@@ -20,7 +20,7 @@ export const mockGetFollowers = http.get(`${baseURL}/users/:user/followers`, asy
   if (id === 'error') return HttpResponse.json(MOCK_GET_FOLLOWERS_FORBIDDEN, { status: 403 })
   if (id === 'notFound') return HttpResponse.json(MOCK_GET_FOLLOWERS_NOT_FOUND, { status: 404 })
 
-  const pageFormatted = !!page ? Number(page.replace(/\D/g, '')) : 1
+  const pageFormatted = page ? Number(page.replace(/\D/g, '')) : 1
 
   const start = (pageFormatted - 1) * ITEMS_PER_PAGE
   const end = start + ITEMS_PER_PAGE
