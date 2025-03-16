@@ -23,11 +23,11 @@ export const NotFound = () => {
           px={2}
           py={4}
         >
-          <Typography variant="h2" align="center">
+          <Typography variant="h2" align="center" data-testid="not-found-page-title">
             {t('NotFound.messageNotFound')}
           </Typography>
 
-          <Link component={LinkRouter} to="/" underline="always">
+          <Link component={LinkRouter} to="/" underline="always" data-testid="not-found-page-link">
             {t('NotFound.linkHome')}
           </Link>
         </Box>
