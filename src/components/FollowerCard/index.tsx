@@ -7,12 +7,13 @@ import { theme } from 'styles/theme'
 
 interface FollowerCardProps {
   follower: Follower
+  index: number
 }
 
 const tablet = theme.breakpoints.up('md')
 const desktop = theme.breakpoints.up('lg')
 
-export const FollowerCard = ({ follower }: FollowerCardProps) => {
+export const FollowerCard = ({ follower, index }: FollowerCardProps) => {
   const { t } = useTranslation()
 
   const name = follower.login
@@ -22,7 +23,7 @@ export const FollowerCard = ({ follower }: FollowerCardProps) => {
 
   return (
     <Card
-      data-testid="follower-card"
+      data-testid={`follower-card-${index}`}
       sx={{
         width: '100%',
         height: 'fit-content',

@@ -39,8 +39,8 @@ export const Followers = () => {
 
       {!!followers.length && (
         <Grid container gap={2}>
-          {followers.map((follower) => (
-            <FollowerCard key={follower.id} follower={follower} />
+          {followers.map((follower, index) => (
+            <FollowerCard key={follower.id} follower={follower} index={index} />
           ))}
         </Grid>
       )}
