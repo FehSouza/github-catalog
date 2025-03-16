@@ -28,8 +28,6 @@ Ele foi criado com o objetivo de aprofundar estudos em internacionalização e n
 
 **React Intl:** biblioteca para implementação de internacionalização (i18n);
 
-**Styled Components:** biblioteca para estilização de componentes em React;
-
 **Vitest:** ferramenta de testes unitários para projetos em JavaScript/TypeScript;
 
 **Playwright:** framework para testes end-to-end (E2E).
