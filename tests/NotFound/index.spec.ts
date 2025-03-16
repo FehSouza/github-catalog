@@ -25,8 +25,11 @@ test.describe('NotFound', () => {
     await expect(link).toBeInViewport()
 
     const linkHref = await link.getAttribute('href')
+    const url = `https://github-catalog.vercel.app${linkHref}`
+
     link.click()
 
-    expect(page.url()).toBe(`https://github-catalog.vercel.app${linkHref}`)
+    await page.waitForURL(url)
+    expect(page.url()).toContain(url)
   })
 })
