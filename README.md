@@ -20,7 +20,7 @@ Ele foi criado com o objetivo de aprofundar estudos em internacionalização e n
 
 ## Tecnologias usadas
 
-**Next.js:** framework React para desenvolvimento de aplicações web;
+**React:** Biblioteca para construção de interfaces de usuário.
 
 **TypeScript:** superset do JavaScript que adiciona tipagem estática ao código;
 
